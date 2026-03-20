@@ -1,0 +1,49 @@
+name: Check Round-Trip Flight Prices
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'  # Every 6 hours at :23 (avoids peak-hour delays)
+  workflow_dispatch:
+
+jobs:
+  # ──────────────────────────────────────────────
+  # Single round-trip job: GYE <-> YYZ
+  # Outbound: May 11 | Return: Jun 8
+  # Uses TRIP_TYPE=1 (true round-trip SerpApi call)
+  # ──────────────────────────────────────────────
+  roundtrip-gye-yyz:
+    name: "GYE <-> YYZ Round-Trip (May 11 / Jun 8)"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run round-trip tracker
+        env:
+          SERPAPI_KEY:    ${{ secrets.SERPAPI_KEY }}
+          NTFY_TOPIC:     ${{ secrets.NTFY_TOPIC }}
+          ORIGIN:         "GYE"
+          DESTINATION:    "YYZ"
+          OUTBOUND_DATE:  "2026-05-11"
+          RETURN_DATE:    "2026-06-08"
+          CURRENCY:       "CAD"
+          HISTORY_FILE:   "history_roundtrip.csv"
+        run: python flight_tracker.py
+
+      - name: Commit round-trip price history
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add history_roundtrip.csv
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "Round-trip price update [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+          git pull --rebase origin main
+          git push
