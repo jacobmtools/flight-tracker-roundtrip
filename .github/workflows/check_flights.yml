@@ -2,7 +2,7 @@ name: Check Round-Trip Flight Prices
 
 on:
   schedule:
-    - cron: '23 3-21/6 * * *'  # Every 6 hours at :23 (avoids peak-hour delays)
+    - cron: '23 3-21/8 * * *'  # Every 8 hours at :23 (avoids peak-hour delays)
   workflow_dispatch:
 
 jobs:
