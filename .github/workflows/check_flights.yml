@@ -12,7 +12,7 @@ jobs:
   # Uses TRIP_TYPE=1 (true round-trip SerpApi call)
   # ──────────────────────────────────────────────
   roundtrip-gye-yyz:
-    name: "GYE <-> YYZ Round-Trip (May 11 / Jun 8)"
+    name: "GYE <-> YYZ Round-Trip (Sep 11 / Oct 4)"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -32,8 +32,8 @@ jobs:
           NTFY_TOPIC:     ${{ secrets.NTFY_TOPIC }}
           ORIGIN:         "GYE"
           DESTINATION:    "YYZ"
-          OUTBOUND_DATE:  "2026-05-11"
-          RETURN_DATE:    "2026-06-08"
+          OUTBOUND_DATE:  "2026-09-11"
+          RETURN_DATE:    "2026-10-04"
           CURRENCY:       "CAD"
           HISTORY_FILE:   "history_roundtrip.csv"
         run: python flight_tracker.py
