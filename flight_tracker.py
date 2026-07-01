@@ -17,7 +17,7 @@ ORIGIN          = os.environ.get("ORIGIN",          "GYE")
 DESTINATION     = os.environ.get("DESTINATION",     "YYZ")
 CURRENCY        = os.environ.get("CURRENCY",        "CAD")
 OUTBOUND_DATE   = os.environ.get("OUTBOUND_DATE",   "2026-09-05")
-RETURN_DATE     = os.environ.get("RETURN_DATE",     "2026-09-20")
+RETURN_DATE     = os.environ.get("RETURN_DATE",     "2026-09-17")
 HISTORY_FILE    = os.environ.get("HISTORY_FILE",    "history_roundtrip.csv")
 
 # TRIP_TYPE is always 1 (round-trip) in this repo
