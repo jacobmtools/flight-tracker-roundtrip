@@ -497,3 +497,4 @@ date,price,route,currency,price_level,typical_low,typical_high,airline,outbound_
 2026-09-27 22:16,1312,GYE-YYZ-GYE,CAD,high,760,1200,American,2026-12-19,2027-01-09
 2026-09-28 09:53,1171,GYE-YYZ-GYE,CAD,typical,760,1200,American,2026-12-19,2027-01-09
 2026-09-28 18:36,1172,GYE-YYZ-GYE,CAD,typical,760,1200,American,2026-12-19,2027-01-09
+2026-09-28 23:50,1172,GYE-YYZ-GYE,CAD,typical,760,1200,Avianca,2026-12-19,2027-01-09
