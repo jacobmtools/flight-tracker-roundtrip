@@ -600,3 +600,4 @@ date,price,route,currency,price_level,typical_low,typical_high,airline,outbound_
 2026-11-05 00:23,1590,GYE-YYZ-GYE,CAD,high,790,1300,American,2026-12-19,2027-01-09
 2026-11-05 11:03,1417,GYE-YYZ-GYE,CAD,high,790,1250,American,2026-12-19,2027-01-09
 2026-11-05 18:47,1420,GYE-YYZ-GYE,CAD,high,810,1300,American,2026-12-19,2027-01-09
+2026-11-06 00:21,1423,GYE-YYZ-GYE,CAD,high,810,1300,American,2026-12-19,2027-01-09
